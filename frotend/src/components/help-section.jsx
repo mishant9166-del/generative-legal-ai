@@ -24,7 +24,7 @@ function HelpSection({ toggleHelp }) {
           <div className="p-4">
             <div className="d-flex gap-2 mb-4">
               <button
-                onClick="showTab('video')"
+                onClick="showTab('video') d"
                 id="videoTab"
                 className="tab-button btn btn-primary px-3 py-2 active"
               >
