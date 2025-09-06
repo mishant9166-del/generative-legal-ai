@@ -1,0 +1,253 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+
+:root {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e2e8f0;
+  --card-bg: #ffffff;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --border-color: #475569;
+  --card-bg: #1e293b;
+  --shadow-light: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+.nav-link-hover {
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+.nav-link-hover:hover {
+  color: #2563eb; 
+}
+.hero-bg {
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+}
+.hero-bg {
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary) 0%,
+    var(--bg-tertiary) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.ghibli-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-item {
+  position: absolute;
+  opacity: 0.1;
+  animation: float 20s infinite linear;
+  pointer-events: none;
+}
+
+.floating-item:nth-child(odd) {
+  animation-direction: reverse;
+}
+
+.floating-item:nth-child(2n) {
+  animation-duration: 25s;
+}
+
+.floating-item:nth-child(3n) {
+  animation-duration: 30s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+  }
+}
+
+.minimal-card {
+  background: #1e293b;
+  border: 1px solid #e2e8f0 ;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  
+}
+
+.soft-button {
+  transition: all 0.2s ease;
+}
+
+.soft-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  
+}
+
+.feature-card {
+  transition: all 0.2s ease;
+  
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  /* transform: translate3d(0, -1rem, 10px); */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.help-modal {
+  /* display: none; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.help-modal2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.help-content {
+  background: var(--card-bg);
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.tab-button {
+  transition: all 0.2s ease;
+}
+
+.tab-button.active {
+  background: #3b82f6;
+  color: white;
+}
+
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: var(--border-color);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: #3b82f6;
+}
+
+[data-theme="dark"] .theme-toggle::before {
+  transform: translateX(30px);
+}
+
+.border-dashed {
+  border-style: dashed;
+  border-color: #d1d5db !important;
+  border-width: 2px !important;
+
+}
+
+/* Mobile Navigation */
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px var(--shadow-light);
+  display: block;
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-bg {
+    min-height: 100vh;
+    padding-top: 80px;
+  }
+
+  .floating-item {
+    font-size: 1.5rem;
+  }
+
+  .help-content {
+    margin: 1rem;
+    max-height: 85vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .floating-item {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .floating-item {
+    font-size: 2rem;
+  }
+}
+
+/* Desktop adjustments */
+@media (min-width: 1024px) {
+  .floating-item {
+    font-size: 2.5rem;
+  }
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25) !important; /* smaller spread */
+  border-color: #86b7fe; /* keep Bootstrap border color */
+}

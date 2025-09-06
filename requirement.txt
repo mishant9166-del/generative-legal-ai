@@ -1,0 +1,13 @@
+fastapi//
+uvicorn[standard]//
+python-multipart
+aiofiles
+sentence-transformers
+faiss-cpu//
+pdfplumber
+python-docx//
+pandas//
+openai//
+transformers
+nltk
+python-dotenv
