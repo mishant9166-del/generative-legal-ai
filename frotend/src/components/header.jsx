@@ -11,7 +11,7 @@ function Header({ toggleHelp }) {
   }
   return (
     <>
-      <nav className="navbar navbar-expand-md fixed-top bg-white border-bottom shadow-sm">
+      <nav className="navbar navbar-expand-md fixed-top bg-white border-bottom shadow-sm z-3">
         <div className="container">
           {/* Logo */}
           <div className="d-flex align-items-center me-3">
@@ -70,8 +70,9 @@ function Header({ toggleHelp }) {
             </ul>
           </div>
         </div>
+        {isMenuOpen && <MobileMenu toggleHelp={toggleHelp} handleMenuToggle={handleMenuToggle} />}
       </nav>
-      {/* {isMenuOpen && <MobileMenu toggleHelp={toggleHelp} />} */}
+      
     </>
   );
 }

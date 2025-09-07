@@ -64,6 +64,7 @@ body {
   z-index: 0;
 }
 
+
 .floating-item {
   position: absolute;
   opacity: 0.1;
@@ -81,6 +82,116 @@ body {
 
 .floating-item:nth-child(3n) {
   animation-duration: 30s;
+}
+
+.text-blue-900 {
+  color: #1e3a8a !important; /* Tailwind's blue-900 */
+}
+
+.custom-background {
+  background-color: white !important; /* Tailwind's blue-100 */
+  border: none !important;
+}
+
+.quicksection-title-1 {
+  font-weight: 500;
+  font-size: 1.07rem;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+.quicksection-title-2{
+  font-weight: 500;
+  font-size: 1.07rem;       /* Tailwind font-semibold */
+  color: #14532d;         /* Tailwind text-green-900 */
+  margin-bottom: 0.5rem;  
+}
+.quicksection-title-3{
+  font-weight: 500;
+  font-size: 1.07rem;       /* Tailwind font-semibold */
+  color: #4c1d95;         /* Tailwind text-yellow-900 */
+  margin-bottom: 0.5rem;  
+}
+.quicksection-title-4{
+  font-weight: 500;
+  font-size: 1.07rem;       /* Tailwind font-semibold */
+  color: #111827;         /* Tailwind text-yellow-900 */
+  margin-bottom: 0.5rem;  
+}
+.quicksection-title-5{
+  font-weight: 500;
+  font-size: 1.07rem;       /* Tailwind font-semibold */
+  color: #374151;         /* Tailwind text-gray-700 */
+  margin-bottom: 0.5rem;  
+}
+.quicksection-text-1{
+  font-size: 0.92rem;
+  font-weight: 450;
+  color: #1e40af;
+  line-height: 1.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.quicksection-text-2{
+  color: #166534;    /* Tailwind text-green-800 */
+  font-size: 0.92rem;
+  font-weight: 450;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.quicksection-text-3{
+  color: #6b21a8;    /* Tailwind text-yellow-800 */
+  font-size: 0.92rem;
+  font-weight: 450;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.quicksection-text-4{
+  color: #9a3412;    /* Tailwind text-yellow-800 */
+  font-size: 0.92rem;
+  font-weight: 450;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.quicksection-text-5{
+  color: #374151;    /* Tailwind text-gray-600 */
+  font-size: 0.92rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-weight: 450;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.quick-section-1 {
+  background-color: #eff6ff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #dee2ef;
+  border-color: #bfdbfe ;
+}
+.quick-section-2{
+  background-color: #f0fdf4;   /* Tailwind bg-green-50 */
+  border: 1px solid #bbf7d0;  /* Tailwind border-green-200 */
+  border-radius: 0.5rem;      /* Tailwind rounded-lg */
+  padding: 1rem;  
+}
+.quick-section-3{
+  background-color: #faf5ff;   /* Tailwind bg-yellow-50 */
+  border: 1px solid #e9d5ff;  /* Tailwind border-yellow-200 */
+  border-radius: 0.5rem;      /* Tailwind rounded-lg */
+  padding: 1rem;  
+}
+.quick-section-4{
+  background-color: #fff7ed;   /* Tailwind bg-yellow-50 */
+  border: 1px solid #fed7aa;  /* Tailwind border-yellow-200 */
+  border-radius: 0.5rem;      /* Tailwind rounded-lg */
+  padding: 1rem;  
+}
+.quick-section-5{
+  background-color: #F9FAFB;   /* Tailwind bg-yellow-50 */
+  border: 1px solid #E5E7EB;  /* Tailwind border-yellow-200 */
+  border-radius: 0.5rem;      /* Tailwind rounded-lg */
+  padding: 1rem;  
 }
 
 @keyframes float {
@@ -195,20 +306,6 @@ body {
 }
 
 /* Mobile Navigation */
-.mobile-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--card-bg);
-  border-top: 1px solid var(--border-color);
-  box-shadow: 0 4px 6px var(--shadow-light);
-  display: block;
-}
-
-.mobile-menu.active {
-  display: block;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -247,7 +344,100 @@ body {
   }
 }
 
+ 
+
 .form-control:focus {
   box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25) !important; /* smaller spread */
   border-color: #86b7fe; /* keep Bootstrap border color */
 }
+.help-11{
+  height: 3.5rem;
+  padding-left: 0.5rem;
+}
+.help-12{
+  font-weight: bolder !important;
+  font-size: 6.25rem !important;
+  padding-left: 0.5rem;
+}
+
+.navbar-toggler {
+  border: none !important;       /* remove border */
+  box-shadow: none !important;   /* remove focus/active outline */
+  outline: none !important;      /* remove outline */
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* soft blue glow */
+
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  right: 0;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px var(--shadow-light);
+  display: block;
+  z-index: 10;
+}
+
+.mobile-submenu{
+  padding-left: 1rem;    /* px-4 → 16px */
+  padding-right: 1rem;   /* px-4 → 16px */
+  padding-top: 0.5rem;   /* py-2 → 8px */
+  padding-bottom: 0.5rem;/* py-2 → 8px */
+}
+.mobile-submenu > * + * {
+  margin-top: 0.5rem; /* 8px */
+}
+
+
+.mobile-section-1{
+  display: block;              /* block */
+  padding-top: 0.5rem;         /* py-2 */
+  padding-bottom: 0.5rem;
+  color: inherit;              /* default text color */
+  transition: color 0.2s ease; /* transition-colors */
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+
+
+.mobile-section-2{
+  display: block;              /* block */
+  padding-top: 0.5rem;         /* py-2 */
+  padding-bottom: 0.5rem;
+  color: inherit;              /* default text color */
+  transition: color 0.2s ease; /* transition-colors */
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+
+
+.mobile-section-3{
+  display: block;              /* block */
+  padding-top: 0.5rem;         /* py-2 */
+  padding-bottom: 0.5rem;
+  color: inherit;              /* default text color */
+  transition: color 0.2s ease; /* transition-colors */
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+
+
+.mobile-section-4{
+  display: block;              /* block */
+  padding-top: 0.5rem;         /* py-2 */
+  padding-bottom: 0.5rem;
+  color: inherit;              /* keeps parent text color by default */
+  text-align: left;            /* text-left */
+  width: 100%;                 /* w-full */
+  transition: color 0.2s ease; /* transition-colors */
+  text-decoration: none;
+  border: none;
+  color: var(--text-secondary);
+
+}
+

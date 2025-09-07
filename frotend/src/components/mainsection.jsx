@@ -158,7 +158,7 @@ function MainSection({ toggleHelp }) {
               >
                 Simplifying <br />
                 <span className="text-primary" style={{ fontSize: "4rem" }}>
-                  Legal Document
+                  Legal Documents
                 </span>{" "}
                 <br />
                 <span

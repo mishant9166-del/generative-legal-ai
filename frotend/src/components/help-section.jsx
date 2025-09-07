@@ -1,12 +1,28 @@
+import { useState } from "react";
+import WatchDemo from "./watchdemo";
+import QuickSection from "./quicksection";
+
 function HelpSection({ toggleHelp }) {
+  const [activeTab, setActiveTab] = useState("WatchDemo");
+  
+  const handleBackdropClick = (e) => {
+    // Close only if backdrop (not modal content) is clicked
+    if (e.target.id === "helpModal") {
+      toggleHelp();
+    }
+  };
+
+  const showTab = (tab) => {
+    setActiveTab(tab);
+  }
   return (
     <>
-      <div id="helpModal" className="help-modal help-modal2">
+      <div id="helpModal" className="help-modal help-modal2" onClick={handleBackdropClick}>
         <div className="help-content">
-          <div className="p-3 border-bottom">
-            <div className="d-flex justify-content-between align-items-center">
-              <h3 className="fs-4 fw-bold text-dark mb-0">Help Center</h3>
-              <button onClick={toggleHelp} className="btn btn-sm btn-light">
+          <div className="p-3 border-bottom ">
+            <div className="d-flex justify-content-between align-items-center help-11">
+              <h3 className="fs-4 fw-bold text-dark mb-0 help-12">Help Center</h3>
+              <button onClick={toggleHelp} className="btn btn-sm btn-light custom-background">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -24,96 +40,28 @@ function HelpSection({ toggleHelp }) {
           <div className="p-4">
             <div className="d-flex gap-2 mb-4">
               <button
-                onClick="showTab('video') d"
+                onClick={() => showTab("WatchDemo")}
                 id="videoTab"
-                className="tab-button btn btn-primary px-3 py-2 active"
+                className={`tab-button px-3 py-2 btn ${
+                activeTab === "WatchDemo" ? "btn-primary text-white" : "btn-light text-dark"
+              }`}
               >
                 🎥 Watch Demo
               </button>
               <button
-                onclick="showTab('hints')"
+                onClick={() => showTab("QuickSection")}
                 id="hintsTab"
-                className="tab-button btn btn-light text-dark px-3 py-2"
+                className={`tab-button px-3 py-2 btn ${
+                activeTab === "QuickSection" ? "btn-primary text-white" : "btn-light text-dark"
+              }`}
               >
                 💡 Quick Hints
               </button>
             </div>
 
-            <div id="videoContent" className="tab-content">
-              <div className="bg-light rounded p-4 text-center">
-                <div className="display-4 mb-3">🎬</div>
-                <h4 className="fw-semibold mb-3 text-dark">
-                  Interactive Demo Video
-                </h4>
-                <p className="text-muted mb-4">
-                  Watch how LegalAI transforms complex legal documents into
-                  simple, understandable language.
-                </p>
-                <div className="bg-white rounded p-4 border-dashed">
-                  <p className="text-secondary mb-3">
-                    Demo video would be embedded here
-                  </p>
-                  <button className="btn btn-primary fw-medium">
-                    ▶️ Play Demo Video
-                  </button>
-                </div>
-              </div>
-            </div>
+            {activeTab === "WatchDemo" && <WatchDemo />}
+            {activeTab === "QuickSection" && <QuickSection />}
 
-            <div id="hintsContent" className="tab-content d-none">
-              <div className="d-flex flex-column gap-3">
-                <div className="bg-primary-subtle border border-primary rounded p-3">
-                  <h5 className="fw-semibold text-primary mb-2">
-                    📄 Getting Started
-                  </h5>
-                  <p className="text-primary small mb-0">
-                    Upload your legal document using the "Upload Your Document"
-                    button. Supported formats: PDF, DOC, DOCX, TXT.
-                  </p>
-                </div>
-
-                <div className="bg-success-subtle border border-success rounded p-3">
-                  <h5 className="fw-semibold text-success mb-2">
-                    🤖 Using AI Assistant
-                  </h5>
-                  <p className="text-success small mb-0">
-                    Ask specific questions about your document. Try: "What are
-                    my rights?" or "Explain this clause in simple terms."
-                  </p>
-                </div>
-
-                <div className="bg-purple-100 border border-purple rounded p-3">
-                  <h5 className="fw-semibold text-purple mb-2">
-                    🌐 Language Support
-                  </h5>
-                  <p className="text-purple small mb-0">
-                    Switch between languages anytime. The AI can explain
-                    documents in your preferred language.
-                  </p>
-                </div>
-
-                <div className="bg-warning-subtle border border-warning rounded p-3">
-                  <h5 className="fw-semibold text-warning mb-2">
-                    🎙️ Voice Features
-                  </h5>
-                  <p className="text-warning small mb-0">
-                    Click the microphone icon to ask questions using your voice.
-                    Great for hands-free interaction.
-                  </p>
-                </div>
-
-                <div className="bg-light border rounded p-3">
-                  <h5 className="fw-semibold text-dark mb-2">💡 Pro Tips</h5>
-                  <ul className="text-secondary small mb-0">
-                    <li>
-                      • Be specific with your questions for better results
-                    </li>
-                    <li>• Use the summary feature for long documents</li>
-                    <li>• Save important explanations for future reference</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

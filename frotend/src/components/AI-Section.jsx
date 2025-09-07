@@ -1,4 +1,51 @@
+import { useState } from "react";
 function Assistant() {
+  const [text, setText] = useState("");
+  const [listening, setListening] = useState(false);
+
+  const handleMicClick = () => {
+    if (!("webkitSpeechRecognition" in window)) {
+      alert("Sorry, your browser does not support Speech Recognition.");
+      return;
+    }
+
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = "en-US";
+
+    recognition.onstart = () => {
+      setListening(true);
+      setText("🎙️ Listening...");
+    };
+
+    recognition.onresult = (event) => {
+      const speechResult = event.results[0][0].transcript;
+      setText(speechResult);
+      setListening(false);
+    };
+
+    recognition.onerror = () => {
+      setListening(false);
+      setText("⚠️ Error, please try again.");
+    };
+
+    recognition.onend = () => {
+      setListening(false);
+    };
+
+    recognition.start();
+  };
+
+  const handleInputChange = (event) => {
+    setText(event.target.value);
+  };
+
+  const InputValue = () => {
+    alert(`You asked: ${text}`);
+    setText("");
+  };
+
   return (
     <>
       <section className="py-5 bg-white">
@@ -73,10 +120,22 @@ function Assistant() {
                 <div className="input-group">
                   <input
                     type="text"
-                    className="form-control " 
+                    className="form-control "
                     placeholder="Ask about your document..."
+                    onChange={handleInputChange}
+                    value={text}
                   />
-                  <button className="btn btn-primary">🎙️</button>
+
+                  <button
+                    className="btn btn-submit btn-primary "
+                    type="submit"
+                    onClick={InputValue}
+                  >
+                    ➤
+                  </button>
+                  <button className={`btn ${listening ? "btn-danger" : "btn-primary"}`} onClick={handleMicClick}>
+                    🎙️
+                  </button>
                 </div>
               </div>
             </div>

@@ -13,7 +13,6 @@ import HelpSection from "./components/help-section";
 
 function App() {
   const [helpVisible, setHelpVisible] = useState(false);
-  const [toggleState, setToggleState] = useState(false);
 
   const toggleHelp = () => {
     setHelpVisible(!helpVisible);
@@ -21,7 +20,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-light text-dark">     
+      <div className="bg-light text-dark" >
         <Header toggleHelp={toggleHelp} />
         <MainSection toggleHelp={toggleHelp} />
         {helpVisible && <HelpSection toggleHelp={toggleHelp}/>}

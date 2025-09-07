@@ -28,8 +28,14 @@ a.cursor-pointer:hover {
 /* Custom theme toggle circle */
 /*  */
 
+/* Submit button (arrow) */
+/*  */
 
-
+.btn-submit{
+  margin-right: 0.1rem;
+  border-top-right-radius: 10% !important;
+  border-bottom-right-radius: 10% !important;
+}
 
 
 .nav-1{
